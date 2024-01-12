@@ -12,6 +12,7 @@ export const ChatHistory = ({userInput, loadingSetter, setUserInput}) => {
     const [history, setHistory] = useState([]);
     const [thread, setThread] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
+    const [showSpinner, setShowSpinner] = useState(false);
     const chatHistoryRef = useRef(null);
     
 
@@ -44,6 +45,7 @@ export const ChatHistory = ({userInput, loadingSetter, setUserInput}) => {
 
         const ask = async () => {
             setIsLoading(true);
+            setShowSpinner(true);
             return await query(userInput, thread);
         }
 
@@ -58,6 +60,8 @@ export const ChatHistory = ({userInput, loadingSetter, setUserInput}) => {
                 setHistory((prevState) => {
                     return [...prevState, response]
                 })
+                const timeoutId = setTimeout(() => setShowSpinner(false), 500);
+                return () => clearTimeout(timeoutId);
             }
         }
 
@@ -87,7 +91,11 @@ export const ChatHistory = ({userInput, loadingSetter, setUserInput}) => {
                     );
                 })}
 
-            {isLoading && <p>Loading Response...</p>}
+            {showSpinner && (
+                <div className={`loading-container ${!isLoading ? 'hidden' : ''}`}>
+                    <div className="spinner"></div>
+                </div>
+            )}
 
             </div>
         </div>

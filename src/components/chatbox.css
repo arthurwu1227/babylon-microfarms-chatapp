@@ -60,11 +60,9 @@
 }
 
 .input-box-container {
-  position: fixed; /* Fixes the input box to the bottom */
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute;
   bottom: 0;
-  padding: 1rem; /* Same horizontal padding as #root to align content */
+  padding: 2rem; /* Same horizontal padding as #root to align content */
   background: none; /* Match the background with your chat application background */
   display: flex;
   z-index: 1000;

@@ -21,12 +21,6 @@ export const InputBox = ({setUserInput, isLoading}) => {
         }
     };
 
-    /* const adjustHeight = (event) => {
-        const textarea = event.target;
-        textarea.style.height = 'inherit';
-        textarea.style.height = `${Math.min(textarea.scrollHeight, 120)}px`;
-    } */
-
     useEffect(() => {
         const textarea = document.querySelector('.textinput');
         if (textarea) {

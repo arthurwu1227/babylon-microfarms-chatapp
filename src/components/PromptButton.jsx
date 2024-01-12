@@ -4,10 +4,9 @@ import ChatBotImage from '../assets/BMF_IMG.png'
 
 export const PromptButton = ({setUserInput}) => {
     return (
-        <div>
+    <div>
     <img className='chatbotimage'
     src={ChatBotImage}></img>
-       
     <h1 style={{fontSize: "2.0rem"}}>How can I help you today?</h1>
 
     
